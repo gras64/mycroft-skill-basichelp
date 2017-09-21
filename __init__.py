@@ -76,7 +76,7 @@ class BasicHelpSkill(MycroftSkill):
                          "1. Check if mycroft is installed correctly\n " \
                          "2. Open plasmoid settings and check your mycroft path\n " \
                          "3. Run plasmashell in debug mode report error messages\n " \
-                         "4. Submit your issue's on the #desktop channel, or\n " \
+                         "4. Submit your issue's on the ~desktop channel, or\n " \
                          "5. Create a bug report at https://bugs.kde.org\n " \
                          "/describecomponents.cgi?product=plasma-mycroft"
                 self.speak(output)
