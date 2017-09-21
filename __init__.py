@@ -81,7 +81,7 @@ class BasicHelpSkill(MycroftSkill):
                          "/describecomponents.cgi?product=plasma-mycroft"
                 self.speak(output)
 
-    @intent_handler(IntentBuilder('AvailableSkills').required('action').require('skills'))
+    @intent_handler(IntentBuilder('Skills').optionally('action').require('skills'))
     def handle_skills_mycroft(self, message):
         action = message.data.get('action')
         if action == 'available':
