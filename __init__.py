@@ -38,7 +38,6 @@ class BasicHelpSkill(MycroftSkill):
             self.speak('You can install from {} via the instructions at '
                        'https://docs.mycroft.ai/development/installation'
                        '/raspberry.pi'.format(platform))
-
         elif platform == 'docker':
             self.speak('You can find instructions for {} install at '
                        'https://github.com/MycroftAI/docker-mycroft'
@@ -49,6 +48,9 @@ class BasicHelpSkill(MycroftSkill):
                        'tree/Readme.md  If you are running an Ubuntu '
                        'or Fedora based distro you can find the install '
                        'scripts here, https://github.com/MycroftAI/installers')
+        elif platform == 'qtapp' or platform == 'qtapplication':
+            self.speak('Appimage for the standalone Qtapplication is available at'
+                       'https://github.com/AIIX/Mycroft-Ai-QtApplication/releases')
 
     @intent_handler(IntentBuilder('DocIntent').optionally('platform').require('doc'))
     def handle_docs_mycroft(self, message):
