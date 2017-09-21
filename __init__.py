@@ -67,7 +67,7 @@ class BasicHelpSkill(MycroftSkill):
     def handle_ts_mycroft(self, message):
         platform = message.data.get('platform')
         if not platform:
-            self.speak('General troubleshooting information can be found at'
+            self.speak('General troubleshooting information can be found at '
                        'https://docs.mycroft.ai/development/faq or '
                        'channel ~troubleshooting')
         if platform:
