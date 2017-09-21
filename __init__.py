@@ -43,6 +43,12 @@ class BasicHelpSkill(MycroftSkill):
             self.speak('You can find instructions for {} install at '
                        'https://github.com/MycroftAI/docker-mycroft'
                        .format(platform))
+        elif platform == 'plasmoid':
+            self.speak('Follow the plasmoid install guide at, '
+                       'https://cgit.kde.org/plasma-mycroft.git/'
+                       'tree/Readme.md  If you are running an Ubuntu '
+                       'or Fedora based distro you can find the install '
+                       'scripts here, https://github.com/MycroftAI/installers')
 
     @intent_handler(IntentBuilder('DocIntent').optionally('platform').require('doc'))
     def handle_docs_mycroft(self, message):
