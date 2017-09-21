@@ -88,6 +88,13 @@ class BasicHelpSkill(MycroftSkill):
             self.speak('The current list of mycroft skills can be found at, '
                        'https://github.com/MycroftAI/mycroft-skills')
 
+    @intent_handler(IntentBuilder('Settings').optionally('setting_values').require('settings'))
+    def handle_skills_mycroft(self, message):
+        setting = message.data.get('setting_values')
+        if setting == 'wake' or setting == 'wake word':
+            self.speak('You can adjust the wake word and sensitivity of mycroft '
+                       'by using the instructions at, '
+                       'https://docs.mycroft.ai/development/faq')
 
 
 # The "create_skill()" method is used to create an instance of the skill.
