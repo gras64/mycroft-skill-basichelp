@@ -81,6 +81,13 @@ class BasicHelpSkill(MycroftSkill):
                          "/describecomponents.cgi?product=plasma-mycroft"
                 self.speak(output)
 
+    @intent_handler(IntentBuilder('AvailableSkills').required('action').require('skills'))
+    def handle_skills_mycroft(self, message):
+        action = message.data.get('action')
+        if action == 'available':
+            self.speak('The current list of mycroft skills can be found at,'
+                       'https://github.com/MycroftAI/mycroft-skills')
+
 
 
 # The "create_skill()" method is used to create an instance of the skill.
