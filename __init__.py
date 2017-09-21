@@ -85,7 +85,7 @@ class BasicHelpSkill(MycroftSkill):
     def handle_skills_mycroft(self, message):
         action = message.data.get('action')
         if action == 'available':
-            self.speak('The current list of mycroft skills can be found at,'
+            self.speak('The current list of mycroft skills can be found at, '
                        'https://github.com/MycroftAI/mycroft-skills')
 
 
