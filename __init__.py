@@ -29,12 +29,12 @@ class BasicHelpSkill(MycroftSkill):
     @intent_handler(IntentBuilder('InstallIntent').require('platform').require('install'))
     def handle_install_mycroft(self, message):
         platform = message.data.get('platform')
-        if platform == 'source' or 'git':
+        if platform == 'source' or platform == 'git':
             self.speak('You can install from {} via the instructions at '
                        'https://docs.mycroft.ai/development/installation'
                        '/git.clone.install'.format(platform))
 
-        elif platform == 'pi' or 'picroft':
+        elif platform == 'pi' or  platform == 'picroft':
             self.speak('You can install from {} via the instructions at '
                        'https://docs.mycroft.ai/development/installation'
                        '/raspberry.pi'.format(platform))
@@ -43,6 +43,18 @@ class BasicHelpSkill(MycroftSkill):
             self.speak('You can find instructions for {} install at '
                        'https://github.com/MycroftAI/docker-mycroft'
                        .format(platform))
+
+    @intent_handler(IntentBuilder('DocIntent').optionally('platform').require('doc'))
+    def handle_docs_mycroft(self, message):
+        platform = message.data.get('platform')
+        if platform:
+            if platform == 'picroft' or platform == 'pi':
+                self.speak('You can find the picroft wiki at '
+                           'https://github.com/MycroftAI/'
+                           'enclosure-picroft/wiki')
+        else:
+            self.speak('You can find the general docs at https://docs.mycroft.ai')
+
 
 
 
