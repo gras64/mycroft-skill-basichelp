@@ -29,10 +29,16 @@ class BasicHelpSkill(MycroftSkill):
     @intent_handler(IntentBuilder('InstallIntent').require('platform').require('install'))
     def handle_install_mycroft(self, message):
         platform = message.data.get('platform')
-        if platform == 'source':
+        if platform == 'source' or 'git':
             self.speak('You can install from {} via the instructions at '
                        'https://docs.mycroft.ai/development/installation'
                        '/git.clone.install'.format(platform))
+            
+        elif platform == 'pi' or 'picroft':
+            self.speak('You can install from {} via the instructions at '
+                       'https://docs.mycroft.ai/development/installation'
+                       '/raspberry.pi'.format(platform))
+
 
 
 
