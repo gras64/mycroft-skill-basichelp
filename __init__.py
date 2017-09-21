@@ -49,7 +49,7 @@ class BasicHelpSkill(MycroftSkill):
                        'or Fedora based distro you can find the install '
                        'scripts here, https://github.com/MycroftAI/installers')
         elif platform == 'qtapp' or platform == 'qtapplication':
-            self.speak('Appimage for the standalone Qtapplication is available at'
+            self.speak('Appimage for the standalone Qtapplication is available at '
                        'https://github.com/AIIX/Mycroft-Ai-QtApplication/releases')
 
     @intent_handler(IntentBuilder('DocIntent').optionally('platform').require('doc'))
