@@ -6,6 +6,7 @@ from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.skills.context import adds_context, removes_context
 from mycroft.util.log import getLogger
+import sh
 import requests
 import json
 import datetime
@@ -95,6 +96,12 @@ class BasicHelpSkill(MycroftSkill):
             self.speak('You can adjust the wake word and sensitivity of mycroft '
                        'by using the instructions at, '
                        'https://docs.mycroft.ai/development/faq')
+
+    @intent_handler(IntentBuilder('Logs').require('log'))
+    def handle_log_mycroft(self, message):
+
+        tail = sh.tail("-20", "/var/log/mycroft-skills.log")
+        self.speak("``` {} ```".format(tail))
 
 
 # The "create_skill()" method is used to create an instance of the skill.
