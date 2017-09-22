@@ -1,2 +1,2 @@
-restart services
-restart service
+services restart
+service restart
