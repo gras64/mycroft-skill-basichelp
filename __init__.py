@@ -100,7 +100,7 @@ class BasicHelpSkill(MycroftSkill):
     @intent_handler(IntentBuilder('Logs').require('log'))
     def handle_log_mycroft(self, message):
 
-        tail = sh.tail("-20", "/var/log/mycroft-skills.log")
+        tail = sh.tail("-30", "/var/log/mycroft-skills.log")
         self.speak("``` {} ```".format(tail))
 
 
