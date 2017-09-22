@@ -107,7 +107,7 @@ class BasicHelpSkill(MycroftSkill):
     @intent_handler(IntentBuilder('Services').require('services'))
     def handle_log_mycroft(self, message):
         self.speak("Restarting services")
-        pexpect.run('/opt/mycroft/skills/mycroft-skill-basichelp/restart.sh')
+        pexpect.run('/bin/bash /opt/mycroft/skills/mycroft-skill-basichelp/restart.sh')
 
 
 # The "create_skill()" method is used to create an instance of the skill.
