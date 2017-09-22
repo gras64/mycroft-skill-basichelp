@@ -102,7 +102,7 @@ class BasicHelpSkill(MycroftSkill):
     def handle_log_mycroft(self, message):
 
         tail = pexpect.run("tail -30 /var/log/mycroft-skills.log")
-        self.speak("``` {} ```".format(tail))
+        self.speak("```\n {} \n ```".format(tail))
 
     @intent_handler(IntentBuilder('Services').require('services'))
     def handle_log_mycroft(self, message):
