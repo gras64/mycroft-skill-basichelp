@@ -103,6 +103,13 @@ class BasicHelpSkill(MycroftSkill):
         tail = sh.tail("-30", "/var/log/mycroft-skills.log")
         self.speak("``` {} ```".format(tail))
 
+    @intent_handler(IntentBuilder('Services').require('services'))
+    def handle_log_mycroft(self, message):
+        stop = sh.service("mycroft-skills", "stop")
+        start = sh.service("mycroft-skills", "start")
+        self.speak("{}".format(stop))
+        self.speak("{}").format(start)
+
 
 # The "create_skill()" method is used to create an instance of the skill.
 # Note that it's outside the class itself.
