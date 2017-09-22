@@ -100,16 +100,8 @@ class BasicHelpSkill(MycroftSkill):
 
     @intent_handler(IntentBuilder('Logs').require('log'))
     def handle_log_mycroft(self, message):
-
         tail = pexpect.run("tail -30 /var/log/mycroft-skills.log")
         self.speak("``` {} ```".format(tail))
-
-    @intent_handler(IntentBuilder('Services').require('services'))
-    def handle_log_mycroft(self, message):
-        self.speak("Restarting services")
-        pexpect.run('service mycroft-skills stop')
-        pexpect.run('service mycroft-skills start')
-        self.speak("Services are now restored")
 
 
 # The "create_skill()" method is used to create an instance of the skill.
