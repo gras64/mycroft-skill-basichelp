@@ -103,7 +103,7 @@ class BasicHelpSkill(MycroftSkill):
         tail = pexpect.run("tail -30 /var/log/mycroft-skills.log")
         self.speak("```\n {} \n ```".format(tail))
 
-    @intent_handler(IntentBuilder('Feature').require('feature'))
+    @intent_handler(IntentBuilder('Feature').require('feature').require('action'))
     def handle_feature_mycroft(self, message):
         self.speak("You can file a issue for a feature or bug at "
                    "https://github.com/btotharye/mycroft-skill-"
