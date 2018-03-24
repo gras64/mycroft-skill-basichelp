@@ -37,8 +37,8 @@ class BasicHelpSkill(MycroftSkill):
 
         elif platform == 'pi' or  platform == 'picroft':
             self.speak('You can install from {} via the instructions at '
-                       'https://docs.mycroft.ai/development/installation'
-                       '/raspberry.pi'.format(platform))
+                       'https://mycroft.ai/documentation/#picroft'.format(platform))
+            self.speak('Hope this helps, have a good day.')
         elif platform == 'docker':
             self.speak('You can find instructions for {} install at '
                        'https://github.com/MycroftAI/docker-mycroft'
